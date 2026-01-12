@@ -10,6 +10,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Debug.Log("six seven lol");
     }
 
     // Update is called once per frame
