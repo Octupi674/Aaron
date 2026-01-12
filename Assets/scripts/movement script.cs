@@ -5,7 +5,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     Rigidbody rb;
     public float JumpForce = 5f;
-    public float Xvalue = 2f;
+    public float Xvalue = 0.075f;
+    bool isGrounded;
+    public float maxSpeed = 0.075f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,23 +18,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        {if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && isGrounded)
         {
+            isGrounded = false;
             Debug.Log("Jumped");
             rb.AddForce(0,JumpForce,0 * JumpForce, ForceMode.Impulse);
         }
-        }
-        {if(Input.GetKey("d"))
+        
+        if(Input.GetKey("d") && maxSpeed> Vector3.Magnitude)
         {
             Debug.Log("Moved Right");
-            rb.AddForce(Xvalue,0,0 * Xvalue, ForceMode.Impulse);
+            rb.AddForce(Xvalue * Time.deltaTime,0,0, ForceMode.Impulse);
         }
-        }
-        {if(Input.GetKey("a"))
+        
+        if(Input.GetKey("a") && maxSpeed> rb.Vector3.Left)
         {
             Debug.Log("Moved Left");
-            rb.AddForce(-Xvalue,0,0 * -Xvalue, ForceMode.Impulse);
+            rb.AddForce(-Xvalue * Time.deltaTime,0,0, ForceMode.Impulse);
         }
-        }
+        
+        
     }
-}
+
+    void OnCollisionStay(Collision other)
+    {
+        isGrounded = true;
+    }
+    
+}           

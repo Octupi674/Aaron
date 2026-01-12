@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   JumpForce: 5
-  Xvalue: 0.075
+  Xvalue: 25
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
