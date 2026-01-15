@@ -17,7 +17,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if(Input.GetKeyDown("space") && isGrounded)
         {
@@ -61,9 +61,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
-        isGrounded = true;
+         if (collision.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
     }
     
 }           
