@@ -64,9 +64,5 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-   void FixedUpdate() 
-   {
-        isGrounded = Physics.Raycast(groundCheckOrigin.position,Vector3.down, groundCheckDistance, groundLayer);
-   }
-    
+
 }           
