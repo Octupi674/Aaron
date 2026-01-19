@@ -7,8 +7,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float JumpForce = 5f;
     public float Xvalue = 0.075f;
     bool isGrounded;
+    public LayerMask groundLayer;
     public float maxSpeed;
     public float speed;
+    public Transform groundCheckOrigin;
+    float groundCheckDistance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,9 +64,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision other)
-    {
-        isGrounded = true;
-    }
+   void FixedUpdate() 
+   {
+        isGrounded = Physics.Raycast(groundCheckOrigin.position,Vector3.down, groundCheckDistance, groundLayer);
+   }
     
 }           
