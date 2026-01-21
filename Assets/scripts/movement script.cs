@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
     bool isGrounded;
     public float maxSpeed;
     public float speed;
+    
+    statManager Statmanager;
+
+    private void Awake()
+    {
+        Statmanager = FindObjectOfType<statManager>();
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -68,5 +77,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
             isGrounded = true;
         }
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "collectable")
+        {
+            Statmanager.ChangeCoins(1);
+            Destroy(other.gameObject);
+        }
+        if(other.tag == "killPlayer")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
 }           
