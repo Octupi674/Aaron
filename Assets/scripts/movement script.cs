@@ -8,8 +8,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float JumpForce = 5f;
     public float Xvalue = 0.075f;
     bool isGrounded;
+    public LayerMask groundLayer;
     public float maxSpeed;
     public float speed;
+<<<<<<< HEAD
+    public Transform groundCheckOrigin;
+    float groundCheckDistance;
+=======
     
     statManager Statmanager;
 
@@ -18,6 +23,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Statmanager = FindObjectOfType<statManager>();
     }
     
+>>>>>>> 03f9bfe5b540d67e80bcb14c8afbe441198c1d75
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,6 +76,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+=======
     void OnCollisionEnter(Collision collision)
     {
          if (collision.gameObject.tag == "ground")
@@ -89,5 +97,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+>>>>>>> 03f9bfe5b540d67e80bcb14c8afbe441198c1d75
 
 }           
