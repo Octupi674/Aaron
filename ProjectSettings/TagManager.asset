@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - ground
+  - collectable
+  - killPlayer
+>>>>>>> 03f9bfe5b540d67e80bcb14c8afbe441198c1d75
   layers:
   - Default
   - TransparentFX

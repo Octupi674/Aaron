@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -10,8 +11,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public LayerMask groundLayer;
     public float maxSpeed;
     public float speed;
+<<<<<<< HEAD
     public Transform groundCheckOrigin;
     float groundCheckDistance;
+=======
+    
+    statManager Statmanager;
+
+    private void Awake()
+    {
+        Statmanager = FindObjectOfType<statManager>();
+    }
+    
+>>>>>>> 03f9bfe5b540d67e80bcb14c8afbe441198c1d75
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +32,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if(Input.GetKeyDown("space") && isGrounded)
         {
@@ -64,5 +76,27 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+=======
+    void OnCollisionEnter(Collision collision)
+    {
+         if (collision.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "collectable")
+        {
+            Statmanager.ChangeCoins(1);
+            Destroy(other.gameObject);
+        }
+        if(other.tag == "killPlayer")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+>>>>>>> 03f9bfe5b540d67e80bcb14c8afbe441198c1d75
 
 }           
