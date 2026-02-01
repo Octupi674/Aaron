@@ -1,12 +1,11 @@
-using System.Collections.Specialized;
-using System.Security.Cryptography;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
 
-    Vector3 startPosition;
+   
     Rigidbody rb;
     public float JumpForce = 5f;
     public float Xvalue = 0.075f;
@@ -24,7 +23,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void Awake()
     {
-        startPosition = transform.position;
         Statmanager = FindObjectOfType<statManager>();
     }
     
@@ -100,10 +98,5 @@ public class NewMonoBehaviourScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-    public void Die()
-    {
-        transform.position = startPosition;
-    }
-
    
 }           
