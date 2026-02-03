@@ -10,6 +10,8 @@ public class FaceDirection : MonoBehaviour
         rb = GetComponent<Rigidbody>();
  
         initialForward = transform.forward;
+         
+        
     }
 
     void Update()
@@ -20,13 +22,24 @@ public class FaceDirection : MonoBehaviour
         if (velocity.x > 0.05f)
         {
 
-            transform.rotation = Quaternion.LookRotation(initialForward, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(initialForward);
         }
         else if (velocity.x < -0.05f)
         {
 
-            transform.rotation = Quaternion.LookRotation(-initialForward, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(-initialForward);
         }
+
+        if (transform.rotation.z >= 100 && transform.rotation.z <= -100)
+        {
+            Debug.Log("flip");
+
+            transform.localScale = new Vector3(1f, -1f, 1f);
+
+        }
+
+
     }
+
 }
 
