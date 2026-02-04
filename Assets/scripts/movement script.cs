@@ -95,7 +95,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         if(other.tag == "killPlayer")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            transform.position = FindAnyObjectByType<Checkpoint>().checkpointPositions[Statmanager.currentCheckpoint].position;
+        }
+        if(other.tag == "checkpoint")
+        {
+            Statmanager.TriggerCheckpoint(other.transform.GetSiblingIndex());
         }
     }
    
